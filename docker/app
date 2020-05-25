@@ -72,11 +72,15 @@ restart(){
     start
 }
 
+download(){
+docker pull mysql:5.7
+}
+
 help() {
 
 	APP=$(basename "$0")
 	echo
-	echo "Help: $APP <help|build|delete|new|start|stop|restart>"
+	echo "Help: $APP <help|build|delete|new|start|stop|restart|download>"
 	echo
 	echo "       $APP help                         Show the current use of the script"
 	echo "       $APP build                        Build docker image RoR"
@@ -84,13 +88,14 @@ help() {
     echo "       $APP new                          Create new project of RoR"
     echo "       $APP start                        Start containers of kinedu project"
     echo "       $APP stop                         Delete containers of kinedu project"
+    echo "       $APP download                     Download docker image mysql 5.7"
 	echo
 	exit 0
 }
 
 # Get action and validate
 CMD="$1"
-echo "$CMD" | grep -Eq '^(help|build|delete|new|start|stop|restart)$' || help
+echo "$CMD" | grep -Eq '^(help|build|delete|new|start|stop|restart|downloads)$' || help
 
 
 # Execute command
