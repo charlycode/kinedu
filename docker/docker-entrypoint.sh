@@ -9,13 +9,13 @@ then
     # Remove a potentially pre-existing server.pid for Rails.
     rm -f /app/tmp/pids/server.pid
     bundle install
-    bundle exec rake db:migrate
+    #bundle exec rake db:migrate
 
     if [[ $? -ne 0 ]]; then
       echo
       echo "== Failed to migrate. Running setup first."
       echo
-      bundle exec rake db:setup
+      #bundle exec rake db:setup
     fi
 else
     cd $dir \

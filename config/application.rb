@@ -23,5 +23,8 @@ module App
     config.time_zone = 'Monterrey'
     config.active_record.default_timezone = :local
     config.assets.compile = true
+
+    config.logger = Logger.new(STDOUT)
+    config.log_level = :debug
   end
 end

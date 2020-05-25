@@ -30,9 +30,10 @@
         <div class="form-group col-md-4">
           <label for="inputState"><%= t(:status) %></label>
           <%= content_tag(:select, id: 'inputState', class: 'form-control', :name => 'status-select') do %>
-            <%= content_tag(:option, t(:everything), value: 0) %>
-            <%= content_tag(:option, t(:finished), value: 1) %>
-            <%= content_tag(:option, t(:in_progress), value: 2) %>
+            <%= content_tag(:option, t(:choose), value: 0) %>
+            <%= content_tag(:option, t(:everything), value: 1) %>
+            <%= content_tag(:option, t(:finished), value: 2) %>
+            <%= content_tag(:option, t(:in_progress), value: 3) %>
           <% end %>
         </div>
       </div>
@@ -52,7 +53,7 @@
       <th><%= t(:duration) %></th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="body-table">
     <% @activity_logs.each do |logs| %>
       <tr>
         <th><%= logs.baby.name %></th>
