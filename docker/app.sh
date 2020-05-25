@@ -67,11 +67,16 @@ stop(){
     docker-compose down
 }
 
+restart(){
+    stop
+    start
+}
+
 help() {
 
 	APP=$(basename "$0")
 	echo
-	echo "Help: $APP <help|build|delete|new|start|stop>"
+	echo "Help: $APP <help|build|delete|new|start|stop|restart>"
 	echo
 	echo "       $APP help                         Show the current use of the script"
 	echo "       $APP build                        Build docker image RoR"
@@ -85,7 +90,7 @@ help() {
 
 # Get action and validate
 CMD="$1"
-echo "$CMD" | grep -Eq '^(help|build|delete|new|start|stop)$' || help
+echo "$CMD" | grep -Eq '^(help|build|delete|new|start|stop|restart)$' || help
 
 
 # Execute command

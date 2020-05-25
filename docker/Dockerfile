@@ -2,7 +2,9 @@ FROM ruby:2.6.0
 
 MAINTAINER carlos.systemred@gmail.com
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update \
+  && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+  && apt-get install -y \
   build-essential \
   nodejs
 

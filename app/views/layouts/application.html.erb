@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>App</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Kinedu Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="https://blog.nubecolectiva.com/wp-content/uploads/2018/08/faviconcc.png">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <!-- Con estas 2 líneas llamamos a los archivos CSS y Javascript de Bootstrap y demás -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+  <!-- render -->
+  <%= yield %>
+
+</body>
 </html>

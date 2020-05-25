@@ -16,6 +16,7 @@ services:
     image: ror_260_524:master
     volumes:
       - ../:/app
+      - ../docker/docker-entrypoint.sh:/usr/bin/docker-entrypoint.sh
     ports:
       - "3001:3000"
     depends_on:

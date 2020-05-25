@@ -1,2 +1,93 @@
-<h1>ActivityLogs#index</h1>
-<p>Find me in app/views/activity_logs/index.html.erb</p>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#"><%= t(:company_title) %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+<main class="container" role="main">
+  <div class="jumbotron">
+    <div>
+      <h1 class="h1-title"><%= t(:log_activities) %></h1>
+      <button type="submit" class="btn btn-primary send-bottom"><%= t(:send) %></button>
+    </div>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputState"><%= t(:babies) %></label>
+          <%= content_tag(:select, id: 'inputState', class: 'form-control', :name => 'baby-select') do %>
+            <%= content_tag(:option, t(:choose), value: 0) %>
+            <%= options_babies_select(@babies) %>
+          <% end %>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState"><%= t(:assistants) %></label>
+          <%= content_tag(:select, id: 'inputState', class: 'form-control', :name => 'assistant-select') do %>
+            <%= content_tag(:option, t(:choose), value: 0) %>
+            <%= options_assistants_select(@assistants) %>
+          <% end %>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState"><%= t(:status) %></label>
+          <%= content_tag(:select, id: 'inputState', class: 'form-control', :name => 'status-select') do %>
+            <%= content_tag(:option, t(:everything), value: 0) %>
+            <%= content_tag(:option, t(:finished), value: 1) %>
+            <%= content_tag(:option, t(:in_progress), value: 2) %>
+          <% end %>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+  <div class="container"></div>
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+      <th><%= t(:baby) %></th>
+      <th><%= t(:assistant) %></th>
+      <th><%= t(:activity) %></th>
+      <th><%= t(:start) %></th>
+      <th><%= t(:status) %></th>
+      <th><%= t(:duration) %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @activity_logs.each do |logs| %>
+      <tr>
+        <th><%= logs.baby.name %></th>
+        <th><%= logs.assistant.name %></th>
+        <th><%= logs.activity.name %></th>
+        <th><%= logs.start_time.to_time.iso8601 %></th>
+        <th><%= status_activity(logs.stop_time) %></th>
+        <th><%= duration_activity(logs.duration)  %></th>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th><%= t(:baby) %></th>
+      <th><%= t(:assistant) %></th>
+      <th><%= t(:activity) %></th>
+      <th><%= t(:start) %></th>
+      <th><%= t(:status) %></th>
+      <th><%= t(:duration) %></th>
+    </tr>
+    </tfoot>
+  </table>
+
+  <div class="row">
+
+  </div>
+  <hr>
+</main>
+<footer></footer>
+<div class="container">
+  <div align="center"><%= t(:by_development) %> <a href="#" target="_blank"><%= t(:name_developer) %></a></div>
+</div>
+
+<br><br>
+<%= javascript_include_tag "datatables/jquery.dataTables.min" %>
+<%= javascript_include_tag "datatables/dataTables.bootstrap4.min" %>
+<%= javascript_include_tag "activity_log/activity" %>
+
