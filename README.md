@@ -39,3 +39,7 @@ Una vez que se haya finalizado con estos pasos solo hay que hacer un paso mas
 
 3 - ./app start -  Esto para inicializar los contenedores de docker basados en las imágenes, podran ver como se crean los contenedores y se muestra el log de los contenedores, por una lado mysql y tambien el server de rails, tarda poco solo en lo que descargar algunas gemas. podran acceder a la url de http://localhost:3001 y podran ver el proyecto.
 
+
+
+Nota: El proyecto esta configurado para que se levante mysql y se importe el sql con los datos proporcionados, asi como los accesos a la base de datos se importan a los contenedores, los accesos estan un archivo .env que importa como variables de entorno a los contenedores.
+
