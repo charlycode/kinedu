@@ -76,11 +76,20 @@ download(){
 docker pull mysql:5.7
 }
 
+get_tokens(){
+CN=$(docker ps -a --filter "name=rails_kinedu" --format "{{.Names}}")
+    if [[ "$CN" != "" ]];
+    then
+        docker exec -d rails_kinedu bundle exec rails runner "user = User.new; user.save" | awk "{print $1}"
+        docker exec rails_kinedu bundle exec rails runner "user = User.all.find_each {|u| puts u.token};" | awk "{print $1}"
+    fi
+}
+
 help() {
 
 	APP=$(basename "$0")
 	echo
-	echo "Help: $APP <help|build|delete|new|start|stop|restart|download>"
+	echo "Help: $APP <help|build|delete|new|start|stop|restart|download|get_tokens>"
 	echo
 	echo "       $APP help                         Show the current use of the script"
 	echo "       $APP build                        Build docker image RoR"
@@ -89,13 +98,14 @@ help() {
     echo "       $APP start                        Start containers of kinedu project"
     echo "       $APP stop                         Delete containers of kinedu project"
     echo "       $APP download                     Download docker image mysql 5.7"
+    echo "       $APP get_tokens                   Create token for use api rest"
 	echo
 	exit 0
 }
 
 # Get action and validate
 CMD="$1"
-echo "$CMD" | grep -Eq '^(help|build|delete|new|start|stop|restart|downloads)$' || help
+echo "$CMD" | grep -Eq '^(help|build|delete|new|start|stop|restart|downloads|get_tokens)$' || help
 
 
 # Execute command
