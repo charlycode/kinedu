@@ -1,0 +1,3 @@
+class ApiActivityLogsController < ApiController
+
+end
