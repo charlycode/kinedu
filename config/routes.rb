@@ -7,5 +7,7 @@ Rails.application.routes.draw do
       match '/babies', to: 'babies#index', via: [:get, :post, :put, :patch, :options, :delete]
       match '/babies/:id/activity_logs', to: 'babies#get_activity_log', via: [:get, :post, :put, :patch, :options, :delete]
       match '/activities', to: 'activities#index', via: [:get, :post, :put, :patch, :options, :delete]
+      match '/activity_logs', to: 'api_activity_logs#create_entry', via: [:get, :post, :put, :patch, :options, :delete]
+      match '/activity_logs/:id', to: 'api_activity_logs#finished_entry', via: [:get, :post, :put, :patch, :options, :delete]
   end
 end

@@ -26,7 +26,7 @@ class Api::BabiesController < ApiController
 
   def get_activity_log
     if request.get?
-      if params[:id] and !params[:id].blank? and params[:id].to_i.is_a? Integer
+      if params[:id].present? and !params[:id].blank? and params[:id].to_i.is_a? Integer
         id = params[:id]
         babies = ActivityLog.select('activity_logs.id, activity_logs.baby_id, activity_logs.activity_id, assistants.name as assistant_name, activity_logs.start_time, activity_logs.stop_time')\
                            .joins(:baby, :activity, :assistant)\
@@ -52,7 +52,7 @@ class Api::BabiesController < ApiController
       render json: {status: 'Error', message: 'Method not allowed'}, :status => :method_not_allowed
     end
   rescue Exception => exc
-    render json: {status: 'Exception', message: 'An exception occurred.', Exception: exc.to_s}, :status => :internal_server_error
+    render json: {status: 'Exception', message: 'An exception occurred.'}, :status => :internal_server_error
   end
 
   private
