@@ -54,21 +54,17 @@ $(document).ready ->
               _data = []
               i = 0
               while i < data.activities.length
+                item = {}
+                item['Bebe'] = data.activities[i].baby_name
+                item['Asistente'] = data.activities[i].assistant_name
+                item['Actividad'] = data.activities[i].baby_name
+                item['Inicio'] = data.activities[i].start_time
+                
                 if data.activities[i].stop_time == null
-                  item = {}
-                  item['Bebe'] = data.activities[i].baby_name
-                  item['Asistente'] = data.activities[i].assistant_name
-                  item['Actividad'] = data.activities[i].baby_name
-                  item['Inicio'] = data.activities[i].start_time
                   item['Estatus'] = 'En progreso'
                   item['Duracion'] = '*'
                   _data.push(item)
                 else
-                  item = {}
-                  item['Bebe'] = data.activities[i].baby_name
-                  item['Asistente'] = data.activities[i].assistant_name
-                  item['Actividad'] = data.activities[i].baby_name
-                  item['Inicio'] = data.activities[i].start_time
                   item['Estatus'] = 'Terminada'
                   item['Duracion'] = "#{data.activities[i].duration} #{'minutos'}"
                   _data.push(item)

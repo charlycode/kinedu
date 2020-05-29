@@ -50,7 +50,7 @@ class Api::ApiActivityLogsController < ApiController
             start = activity.start_time.to_time
             stop = activity.stop_time.to_time
 
-            total = stop-start
+            total = stop - start
             total = (total / 60).to_i
             activity.duration = total
 
@@ -84,6 +84,7 @@ class Api::ApiActivityLogsController < ApiController
   end
 
   private
+
   def check_params(params)
     data = Hash.new
     if params[:baby_id].present? and !params[:baby_id].blank? and params[:baby_id].to_i.is_a? Integer
