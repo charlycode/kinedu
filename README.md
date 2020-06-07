@@ -1,6 +1,6 @@
 # 		**Kinedu Test**
 
-- Este proyecto corre sonbre contenedores de Docker
+- Este proyecto corre sobre contenedores de Docker
 - Corre bajo la version de Ruby 2.6.0 y Rails 5.2.4
 - realizar el clone del proyecto.
 - Se requiere que se tenga instalado docker y docker-compose
@@ -12,7 +12,7 @@
 
 ## Inicio
 
-Dentro del proyecto de kinedu hay un carpeta llamada docker, la cual contiene un script en bash con el cual se podra ejecutar todo. Teniendo un equipo con OS MacOS o Linux, usuand la terminal posicionarse sobre la carpeta de docker.
+Dentro del proyecto de kinedu hay un carpeta llamada docker, la cual contiene un script en bash con el cual se podra ejecutar todo. Teniendo un equipo con OS MacOS o Linux, usuando la terminal, posicionarse sobre la carpeta de docker.
 
 
 
