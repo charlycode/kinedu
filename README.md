@@ -12,7 +12,7 @@
 
 ## Inicio
 
-Dentro del proyecto de kinedu hay un carpeta llamada docker, la cual contiene un script en bash con el cual se podra ejecutar todo. Teniendo un equipo con OS MacOS o Linux, usuando la terminal, posicionarse sobre la carpeta de docker.
+Dentro del proyecto de kinedu hay un carpeta llamada docker, la cual contiene un script en bash con el cual se podra ejecutar todo. Teniendo un equipo con OS MacOS o Linux, usando la terminal, posicionarse sobre la carpeta de docker.
 
 
 
@@ -38,7 +38,7 @@ Ya que se tiene docker instalado, hay que crear la imagen RoR y descargar la ima
 
 Una vez que se haya finalizado con estos pasos solo hay que hacer un paso mas
 
-3 - ./app start -  Esto para inicializar los contenedores de docker basados en las imágenes, podran ver como se crean los contenedores y se muestra el log de los contenedores, por una lado mysql y tambien el server de rails, tarda poco solo en lo que descargar algunas gemas. podran acceder a la url de http://localhost:3001 y podran ver el proyecto.
+3 - ./app start -  Esto para inicializar los contenedores de docker basados en las imágenes, podran ver como se crean los contenedores y se muestra el log de los contenedores, por una lado mysql y tambien el server de rails, tarda poco solo en lo que descarga algunas gemas. Podran acceder a la url de http://localhost:3001 y podran ver el proyecto.
 
 
 
